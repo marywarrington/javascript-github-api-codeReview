@@ -11,11 +11,14 @@ $(document).ready(function() {
     $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function(response){
       $('.showRepos').show();
       $('#display-name').text(username);
-      console.log("HEY!");
 
       for (i = 0; i < response.length; i++){
-
-        $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + response[i].description + '</li><br>');
+        var repoDescription = response[i].description;
+        if(repoDescription === "") {
+          console.log("no repo description");
+          repoDescription = "no description given";
+        }
+        $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + repoDescription + '</li><br>');
       }
     }).fail(function(error){
       console.log(error.responseJSON.message);

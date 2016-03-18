@@ -1,6 +1,6 @@
 
 var apiKey = require('./../.env').apiKey;
-var tempConvertToF = require('./../js/scripts.js');
+var hasDescription = require('./../js/scripts.js').hasDescription;
 
 $(document).ready(function() {
   $('.showRepos').hide();
@@ -12,12 +12,8 @@ $(document).ready(function() {
       $('.showRepos').show();
       $('#display-name').text(username);
 
-      for (i = 0; i < response.length; i++){
-        var repoDescription = response[i].description;
-        if(repoDescription === "") {
-          repoDescription = "no description given";
-        }
-        $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + repoDescription + '</li><br>');
+      for (i = 0; i < response.length; i++) {
+      $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + hasDescription(response[i]) + '</li><br>');
       }
     }).fail(function(error){
       console.log(error.responseJSON.message);

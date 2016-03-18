@@ -8,7 +8,7 @@ $(document).ready(function() {
   $('#repobutton').click(function() {
     var username = $('#username').val();
     $('#username').val("");
-    $.get('https://api.github.com/users/marywarrington?access_token=' + apiKey).then(function(response){
+    $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function(response){
       $('.showRepos').show();
       $('#display-name').text(username);
       console.log("HEY!");

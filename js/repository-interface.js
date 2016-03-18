@@ -13,12 +13,10 @@ $(document).ready(function() {
       $('#display-name').text(username);
 
       for (i = 0; i < response.length; i++) {
-      $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + hasDescription(response[i]) + '</li><br>');
-      }
-    }).fail(function(error){
+        $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + hasDescription(response[i]) + '</li><br>');
+        }
+      }).fail(function(error){
       console.log(error.responseJSON.message);
     });
-
-
   });
 });

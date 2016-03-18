@@ -12,6 +12,7 @@ $(document).ready(function() {
       $('.showRepos').show();
       $('#display-name').text(username);
       console.log("HEY!");
+      $('#results').append('<li><strong>Repo Name</strong>: ' + repoName + '</li><li><strong>Repo Description</strong>: ' + repoDescription + '</li>')
     }).fail(function(error){
       console.log(error.responseJSON.message);
     });

@@ -12,7 +12,14 @@ $(document).ready(function() {
       $('.showRepos').show();
       $('#display-name').text(username);
       console.log("HEY!");
-      $('#results').append('<li><strong>Repo Name</strong>: ' + response.name + '</li><li><strong>Repo Description</strong>: ' + response.description + '</li>');
+
+      // for (i = 0; i < response.length; i++){
+      //
+      //
+      //
+      //
+      // }
+      $('#results').append('<li><strong>Repo Name</strong>: ' + response[0].name + '</li><li><strong>Repo Description</strong>: ' + response[0].description + '</li>');
     }).fail(function(error){
       console.log(error.responseJSON.message);
     });

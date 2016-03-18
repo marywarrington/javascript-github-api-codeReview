@@ -15,7 +15,6 @@ $(document).ready(function() {
       for (i = 0; i < response.length; i++){
         var repoDescription = response[i].description;
         if(repoDescription === "") {
-          console.log("no repo description");
           repoDescription = "no description given";
         }
         $('#results').append('<li><strong>Repo Name</strong>: <a href=\"' + response[i].html_url + '\">' + response[i].name + '</a></li><li><strong>Repo Description</strong>: ' + repoDescription + '</li><br>');

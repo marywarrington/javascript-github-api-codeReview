@@ -6,6 +6,7 @@ $(document).ready(function() {
   $('.showRepos').hide();
 
   $('#repobutton').click(function() {
+    $('#results').empty();
     var username = $('#username').val();
     $('#username').val("");
     $.get('https://api.github.com/users/' + username + '/repos?access_token=' + apiKey).then(function(response){
